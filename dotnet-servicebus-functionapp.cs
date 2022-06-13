@@ -5,8 +5,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
+    
     public static class ServiceBusTrigger
     {
+        static string QueueName =  Environment.GetEnvironmentVariable("QueueName");
+        
         [FunctionName("ServiceBusTrigger")]
         public static void Run([ServiceBusTrigger("myproj-q",
         Connection = "ServiceBusConnection")]string myQueueItem, ILogger log)
