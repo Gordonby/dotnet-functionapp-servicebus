@@ -11,7 +11,7 @@ namespace Company.Function
 
         //The notation %someText% in the trigger attribute indicates that it should be resolved from AppSettings. ServiceBusQueueName should be used in your local.settings.json or in your App Settings Configuration in Azure.
         [FunctionName("ServiceBusTrigger")]
-        public static void Run([ServiceBusTrigger("%ServiceBusQueueName%",
+        public static void Run([ServiceBusTrigger("myproj-q",
         Connection = "ServiceBusConnection")]string myQueueItem, ILogger log)
         {
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
